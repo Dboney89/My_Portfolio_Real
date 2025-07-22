@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="index.css" /> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <nav class="bg-white shadow sticky top-0 z-40">
+    <div class="container mx-auto flex items-center justify-between px-4 py-3">
+        <div class="flex items-center">
+            <img src="images/profile/mypic.png" alt="Profile" class="w-10 h-10 rounded-full mr-3 border-2 border-blue-500 object-cover cursor-pointer transition-all duration-300" id="profile-pic" />
+            <span class="font-bold text-lg tracking-wider">My Portfolio</span>
+        </div>
+
+        <div class="flex items-center space-x-6">
+            <ul id="nav-menu" class="hidden lg:flex space-x-8 font-medium">
+                <li><a href="#home" class="hover:text-blue-600 transition">Home</a></li>
+                <li><a href="#projects" class="hover:text-blue-600 transition">Projects</a></li>
+                <li><a href="#contact" class="hover:text-blue-600 transition">Contact</a></li>
+                <li><button class="open-gallery-btn hover:text-blue-600 transition">Gallery</button></li>
+            </ul>
+            <button id="nav-toggle" class="lg:hidden text-2xl" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <ul id="mobile-menu" class="lg:hidden hidden flex-col space-y-2 px-4 pb-3 bg-white shadow">
+        <li><a href="#home" class="block py-2 hover:text-blue-600">Home</a></li>
+        <li><a href="#projects" class="block py-2 hover:text-blue-600">Projects</a></li>
+        <li><a href="#contact" class="block py-2 hover:text-blue-600">Contact</a></li>
+        <li><button class="open-gallery-btn hover:text-blue-600 transition">Gallery</button></li>
+    </ul>
+</nav>
+
+<div id="about-me-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-xl max-w-lg w-11/12 mx-auto relative transform transition-all sm:w-full">
+        <button id="about-me-close" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold" aria-label="Close">×</button>
+
+        <div class="text-center mb-4">
+            <img id="about-me-profile-pic" src="images/profile/mypic.png" alt="My Profile" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover border-4 border-blue-500" />
+            
+            <h2 class="text-3xl font-bold text-blue-700 mb-2">Denilson Jasmin</h2>
+        </div>
+
+       <div class="text-gray-800 space-y-3">
+    <p class="text-sm"><strong class="text-blue-600"><i class="fas fa-calendar-alt mr-2"></i>Age:</strong> 27 years old (29/12/1998)</p>
+    <p class="text-sm"><strong class="text-blue-600"><i class="fas fa-graduation-cap mr-2"></i>Qualification:</strong> Undergraduate</p>
+    <p class="text-sm"><strong class="text-blue-600"><i class="fas fa-book mr-2"></i>Course Major:</strong> Bachelor of Information Technology (Hons)</p>
+    <p class="text-sm"><strong class="text-blue-600"><i class="fas fa-award mr-2"></i>CGPA:</strong> 3.61 (Second Class Upper)</p>
+    <p class="text-sm"><strong class="text-blue-600"><i class="fas fa-lightbulb mr-2"></i>Interest:</strong> Web Development, IoT Development, System Design</p>
+    <p class="text-sm"><strong class="text-blue-600"><i class="fas fa-car mr-2"></i>Transportation:</strong> Car (yes) / License (ongoing)</p>
+    <p class="text-sm text-gray-600 mt-4 pt-4 italic border-t border-gray-200 text-center">
+        "Failing doesn't give you a reason to give up, as long as you believe." <br><br> -🍥Uzumaki Naruto-
+    </p>
+</div>
+    </div>
+</div>
+
+
+    <div id="gallery-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl p-6 shadow-lg max-w-3xl w-full relative">
+            <button id="close-gallery-btn" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-red-500" aria-label="Close Gallery">×</button>
+            <h2 class="text-2xl font-bold mb-4 text-blue-600 text-center">Gallery</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="aspect-[4/3] w-full bg-gray-100 rounded-lg overflow-hidden cursor-pointer group"><img src="project1.jpg" alt="Gallery Image 1" class="gallery-img w-full h-full object-cover transition-transform duration-200 group-hover:scale-110" /></div>
+                <div class="aspect-[4/3] w-full bg-gray-100 rounded-lg overflow-hidden cursor-pointer group"><img src="project2.jpg" alt="Gallery Image 2" class="gallery-img w-full h-full object-cover transition-transform duration-200 group-hover:scale-110" /></div>
+                <div class="aspect-[4/3] w-full bg-gray-100 rounded-lg overflow-hidden cursor-pointer group"><img src="project3.png" alt="Gallery Image 3" class="gallery-img w-full h-full object-cover transition-transform duration-200 group-hover:scale-110" /></div>
+                <div class="aspect-[4/3] w-full bg-gray-100 rounded-lg overflow-hidden cursor-pointer group"><img src="project4.png" alt="Gallery Image 4" class="gallery-img w-full h-full object-cover transition-transform duration-200 group-hover:scale-110" /></div>
+                </div>
+        </div>
+    </div>
+
+    <div id="gallery-lightbox-modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 hidden">
+        <div class="relative">
+            <button id="close-gallery-lightbox-btn" class="absolute -top-8 right-0 text-3xl text-white hover:text-red-500" aria-label="Close">×</button>
+            <img id="gallery-lightbox-img" src="" alt="Expanded Gallery Image" class="rounded-lg shadow-lg max-h-[80vh] w-auto object-contain" />
+        </div>
+    </div>
+
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden p-4">
+        <div class="bg-white rounded-lg shadow-lg max-w-lg w-full relative max-h-[95vh] flex flex-col">
+            <button id="modal-close" class="absolute top-2 right-2 text-gray-600 text-2xl hover:text-red-500 transition" aria-label="Close modal">×</button>
+            <div id="modal-content" class="p-6 overflow-y-auto">
+                </div>
+        </div>
+    </div>
+
+    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-[60] hidden">
+    <img id="lightbox-img" src="" alt="Expanded" class="max-h-[80vh] max-w-[80vw] rounded shadow-lg" />
+    <button id="lightbox-close" class="absolute top-6 right-8 text-white text-3xl font-bold">×</button>
+
+    <button class="prev-arrow absolute left-4 text-white text-5xl hover:text-gray-300 focus:outline-none hidden md:block">
+        ❮
+    </button>
+    <button class="next-arrow absolute right-4 text-white text-5xl hover:text-gray-300 focus:outline-none hidden md:block">
+        ❯
+    </button>
+
+    <a id="download-project-image-btn" download class="absolute bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg flex items-center space-x-2">
+        <i class="fas fa-download"></i>
+        <span>Download</span>
+    </a>
+</div>
+
+    <main class="relative">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-200 to-white opacity-80 z-0"></div>
+        <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+            <source src="video/galaxy.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+
+        <section id="home" class="relative min-h-[60vh] flex flex-col justify-center items-center text-center pt-12 pb-16 overflow-hidden">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-3 relative z-10">Hi, I'm <span class="text-blue-600">Denilson Jasmin</span></h1>
+            <p class="text-lg md:text-2xl text-gray-700 mb-6 relative z-10">Full-Stack Web Developer & Systems Designer</p>
+            <div class="flex flex-wrap justify-center gap-3 mb-6 relative z-10">
+    <span class="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium
+                  transition-all duration-300 ease-in-out
+                  hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer
+                  shimmer-effect">Frontend Development</span>
+    <span class="bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-medium
+                  transition-all duration-300 ease-in-out
+                  hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer
+                  shimmer-effect">UI/UX Design</span>
+    <span class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-medium
+                  transition-all duration-300 ease-in-out
+                  hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer
+                  shimmer-effect">System Modeling & Architecture</span>
+    <span class="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-medium
+                  transition-all duration-300 ease-in-out
+                  hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer
+                  shimmer-effect">Backend & Database Management</span>
+    <span class="bg-yellow-500 text-white px-4 py-1 rounded-full text-sm font-medium
+                  transition-all duration-300 ease-in-out
+                  hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer
+                  shimmer-effect">Data Visualization</span>
+    <span class="bg-indigo-500 text-white px-4 py-1 rounded-full text-sm font-medium
+                  transition-all duration-300 ease-in-out
+                  hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer
+                  shimmer-effect">SDLC Practice</span>
+    <span class="bg-red-500 text-white px-4 py-1 rounded-full text-sm font-medium
+                  transition-all duration-300 ease-in-out
+                  hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer
+                  shimmer-effect">Security Practice</span>
+</div>
+            <p class="max-w-xl text-sm md:text-base text-gray-700 leading-relaxed mb-2 relative z-10">
+    I'm a full-stack web developer & Systems Designer passionate about building responsive interfaces, intuitive experiences, and secure systems. My skills shine in the field of <span class="font-bold shake-on-hover cursor-pointer">Frontend and Backend Development</span>, <span class="font-bold shake-on-hover cursor-pointer">UI/UX Design</span>, <span class="font-bold shake-on-hover cursor-pointer">System Modeling</span>, <span class="font-bold shake-on-hover cursor-pointer">Data Visualization</span>, <span class="font-bold shake-on-hover cursor-pointer">SDLC Practices</span>, and <span class="font-bold shake-on-hover cursor-pointer">Web Security</span>. I use tools like <span class="font-bold shake-on-hover cursor-pointer">Tailwind CSS</span>, <span class="font-bold shake-on-hover cursor-pointer">Bootstrap CSS</span>, <span class="font-bold shake-on-hover cursor-pointer">PHP</span>, <span class="font-bold shake-on-hover cursor-pointer">MySQL</span>, <span class="font-bold shake-on-hover cursor-pointer">Js Vanilla</span> and AI-assisted coding and troubleshooting to create purposeful and efficient web solutions.
+</p>
+        </section>
+
+       <section id="projects" class="relative z-10 py-12">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-6 text-blue-600 text-center">My Past Projects</h2>
+        <div class="relative w-full max-w-7xl mx-auto py-8">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide flex justify-center items-center py-4">
+                        <div class="bg-white rounded-xl shadow-lg border-2 border-transparent bg-clip-padding p-0.5 w-full max-w-xs sm:max-w-xs md:max-w-sm" style="background-image: linear-gradient(135deg, #3085ed 50%, #3085ed 50%, #fb7185 100%);">
+                            <div class="bg-white rounded-lg overflow-hidden flex flex-col">
+                                <div class="w-full aspect-video overflow-hidden rounded-t-lg">
+                                    <img src="images/project1/project1.jpg" alt="Project One" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                                </div>
+                                <div class="flex-1 flex flex-col items-center justify-center px-4 py-4 space-y-2">
+                                    <h3 class="text-center italic text-gray-400 text-sm">Project 1</h3>
+                                    <h3 class="font-bold text-lg text-blue-600 text-center whitespace-nowrap overflow-hidden text-ellipsis truncate">Asset Management Crud System</h3>
+                                    <button class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-1 px-2 rounded inline-flex items-center view-details-btn"
+                                            data-title="Asset Management Crud System"
+                                            data-video="https://www.youtube.com/embed/uJdw_ESyb1w"
+                                            data-imgs="images/project1/project1.jpg, images/project1/login.png, images/project1/agent_dashboard.png, images/project1/admin_dashboard.png, images/project1/Use_Case_Diagram.png, images/project1/Asset_Management_System ERD.png, images/project1/db_looks.png " 
+                                            data-desc="This is a robust Asset Management CRUD System designed to streamline the tracking and management of organizational assets. It features user authentication, a comprehensive dashboard for administrators and agents, and allows for creation, reading, updating, and deletion of asset records."
+                                            data-tech="HTML5,CSS3,JavaScript,PHP,MySQL,Bootstrap CSS,Tailwind CSS,UML,AI Tools,Chart js,jquery,Alpine js">
+                                            <i class="fas fa-hand-pointer text-xs mr-1"></i>
+                                            <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide flex justify-center items-center py-4">
+                        <div class="bg-white rounded-xl shadow-lg border-2 border-transparent bg-clip-padding p-0.5 w-full max-w-xs sm:max-w-xs md:max-w-sm" style="background-image: linear-gradient(135deg, #56bb08 50%, #56bb08 50%, #fb7185 100%);">
+                            <div class="bg-white rounded-lg overflow-hidden flex flex-col">
+                                <div class="w-full aspect-video overflow-hidden rounded-t-lg">
+                                    <img src="images/project2/project2.jpg" alt="Project Two" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                                </div>
+                                <div class="flex-1 flex flex-col items-center justify-center px-4 py-4 space-y-2">
+                                    <h3 class="text-center italic text-gray-400 text-sm">Project 2</h3>
+                                    <h3 class="font-bold text-lg text-green-600 text-center whitespace-nowrap overflow-hidden text-ellipsis truncate">Smart Solar Tracker With IoT Switch</h3>
+                                    <button class="bg-green-500 hover:bg-green-700 text-white text-sm font-semibold py-1 px-2 rounded inline-flex items-center view-details-btn"
+                                        data-title="Smart Solar Tracker With IoT Switch"
+                                        data-video="https://www.youtube.com/embed/qbcj9PocjW0"
+                                        data-imgs="images/project2/project2.jpg, images/project2/block_diagram.png, images/project2/use_case_diagram.png, images/project2/smart_solar_tracker.png, images/project2/IoT_Switch.png"
+                                        data-pdf-link="images/project2/DENILSON JASMIN Poster Presentation FYP BIT.pdf"
+                                        data-desc="This smart solar tracker addresses inefficient energy capture by precisely orienting panels via photoresistors, converting sunlight into electricity to charge a power bank. An integrated IoT switch then enables remote energy distribution, unifying two critical functions into one system."
+                                        data-tech="Arduino,ESP32,IoT,C++,Solar Power,Cloud Computing, Blynk, UML">
+                                        <i class="fas fa-hand-pointer text-xs mr-1"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide flex justify-center items-center py-4">
+                        <div class="bg-white rounded-xl shadow-lg border-2 border-transparent bg-clip-padding p-0.5 w-full max-w-xs sm:max-w-xs md:max-w-sm" style="background-image: linear-gradient(135deg, #f3d55e 50%, #f3d55e 50%, #fb7185 100%);">
+                            <div class="bg-white rounded-lg overflow-hidden flex flex-col">
+                                <div class="w-full aspect-video overflow-hidden rounded-t-lg">
+                                    <img src="images/project3/my_portfolio.png" alt="Project Three" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                                </div>
+                                <div class="flex-1 flex flex-col items-center justify-center px-4 py-4 space-y-2">
+                                    <h3 class="text-center italic text-gray-400 text-sm">Project 3</h3>
+                                    <h3 class="font-bold text-lg text-yellow-600 text-center whitespace-nowrap overflow-hidden text-ellipsis truncate">My Portfolio Template</h3>
+                                    <button class="bg-yellow-500 hover:bg-yellow-700 text-white text-sm font-semibold py-1 px-2 rounded inline-flex items-center view-details-btn"
+                                        data-title="My Portfolio Template"
+                                        data-video="https://www.youtube.com/embed/qD_SM_bUOsE" 
+                                        data-imgs="images/project3/my_portfolio.png, images/project3/my_portfolio_down.png " 
+                                        data-desc="A versatile and responsive portfolio template designed to showcase personal projects and skills with a clean, modern aesthetic design."
+                                        data-tech="HTML5,CSS3,JavaScript,Tailwind CSS,Swiper"> <i class="fas fa-hand-pointer text-xs mr-1"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide flex justify-center items-center py-4">
+                        <div class="bg-white rounded-xl shadow-lg border-2 border-transparent bg-clip-padding p-0.5 w-full max-w-xs sm:max-w-xs md:max-w-sm" style="background-image: linear-gradient(135deg, #727eee 50%, #727eee 50%, #fb7185 100%);">
+                            <div class="bg-white rounded-lg overflow-hidden flex flex-col">
+                                <div class="w-full aspect-video overflow-hidden rounded-t-lg">
+                                    <img src="project3.png" alt="Project Four" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                                </div>
+                                <div class="flex-1 flex flex-col items-center justify-center px-4 py-4 space-y-2">
+                                    <h3 class="text-center italic text-gray-400 text-sm">Project 4</h3>
+                                    <h3 class="font-bold text-lg text-purple-600 text-center whitespace-nowrap overflow-hidden text-ellipsis truncate">Movie Web App Template</h3>
+                                    <button class="bg-purple-500 hover:bg-purple-700 text-white text-sm font-semibold py-1 px-2 rounded inline-flex items-center view-details-btn"
+                                        data-title="Movie Web App Template"
+                                        data-video="https://www.youtube.com/embed/lYxnt_CvTVI" 
+                                        data-imgs="images/project4/project3.png, images/project4/movie_body.png, images/project4/footer_movie.png, images/project4/navigator.png"
+                                        data-desc="This movie app is designed to showcase movies using a classic web structure. Built with HTML for content, Bootstrap CSS for sleek styling and responsiveness (delivered via JSDelivr), and vanilla JavaScript for all the interactive magic, this app lets you browse movie listings on one page and dive into detailed information on separate, dedicated pages."
+                                        data-tech="HTML5,CSS3,JavaScript,Bootstrap CSS,jsdelivr"> <i class="fas fa-hand-pointer text-xs mr-1"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide flex justify-center items-center py-4">
+                        <div class="bg-white rounded-xl shadow-lg border-2 border-transparent bg-clip-padding p-0.5 w-full max-w-xs sm:max-w-xs md:max-w-sm" style="background-image: linear-gradient(135deg, #f35134 50%, #f35134 50%, #fb7185 100%);">
+                            <div class="bg-white rounded-lg overflow-hidden flex flex-col">
+                                <div class="w-full aspect-video overflow-hidden rounded-t-lg">
+                                    <img src="project5.png" alt="Project Five" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                                </div>
+                                <div class="flex-1 flex flex-col items-center justify-center px-4 py-4 space-y-2">
+                                    <h3 class="text-center italic text-gray-400 text-sm">Project 5</h3>
+                                    <h3 class="font-bold text-lg text-red-600 text-center whitespace-nowrap overflow-hidden text-ellipsis truncate">Simple E-Commerce Template</h3>
+                                    <button class="bg-red-500 hover:bg-red-700 text-white text-sm font-semibold py-1 px-2 rounded inline-flex items-center view-details-btn"
+                                        data-title="Simple E-Commerce Template"
+                                        data-video="https://www.youtube.com/embed/IHfoga9erjw" 
+                                        data-imgs="images/project5/project5.png, images/project5/about_us.png, images/project5/payment.png, images/project5/testimony.png, images/project5/footer.png"
+                                        data-desc="A foundational e-commerce website template, demonstrating basic product display, cart functionality, and user interface design."
+                                        data-tech="HTML5,CSS3,JavaScript,Swiper,Remix Icon CSS"> <i class="fas fa-hand-pointer text-xs mr-1"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide flex justify-center items-center py-4">
+                        <div class="bg-white rounded-xl shadow-lg border-2 border-transparent bg-clip-padding p-0.5 w-full max-w-xs sm:max-w-xs md:max-w-sm" style="background-image: linear-gradient(135deg, #320482 50%, #320482 50%, #fb7185 100%);">
+                            <div class="bg-white rounded-lg overflow-hidden flex flex-col">
+                                <div class="w-full aspect-video overflow-hidden rounded-t-lg">
+                                    <img src="project9.png" alt="Project Six" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                                </div>
+                                <div class="flex-1 flex flex-col items-center justify-center px-4 py-4 space-y-2">
+                                    <h3 class="text-center italic text-gray-400 text-sm">Project 6</h3>
+                                    <h3 class="font-bold text-lg text-indigo-600 text-center whitespace-nowrap overflow-hidden text-ellipsis truncate">Simple Html, Css, JS Project</h3>
+                                    <button class="bg-indigo-500 hover:bg-indigo-700 text-white text-sm font-semibold py-1 px-2 rounded inline-flex items-center view-details-btn"
+                                        data-title="Simple Html, Css, JS Project"
+                                        data-video="https://www.youtube.com/embed/io0VdvlOfOM" 
+                                        data-imgs="images/project6/chess.png, images/project6/othello.png, images/project6/passwordgen.png, images/project6/simple.png, images/project6/todolist.png" 
+                                        data-desc="A collection of small projects demonstrating fundamental HTML, CSS, and JavaScript concepts and interactions."
+                                        data-tech="HTML5,CSS3,JavaScript,DOM Manipulation"> <i class="fas fa-hand-pointer text-xs mr-1"></i>
+                                        <span>View Details</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination mt-4"></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer id="contact" class="bg-gray-900 text-white py-8 text-center">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+            <div class="mb-4 md:mb-0">
+                <div class="flex flex-col md:flex-row items-center gap-6 text-lg">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-blue-400"></i>
+                        <a href="mailto:davieljasmin@gmail.com" class="hover:underline text-blue-300">davieljasmin@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-blue-400"></i>
+                        <a href="tel:+60198778164" class="hover:underline text-blue-300">019-877 8164</a>
+                    </div>
+                </div>
+            </div>
+            <div>© 2025 Denilson Jasmin. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>
